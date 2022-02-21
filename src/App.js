@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import AutoCompleteInput from './components/AutoCompleteInput/AutoCompleteInput.js';
 import AutoCompleteInput2 from './components/AutoCompleteInput2/AutoCompleteInput2.js';
 import { ACTIONS } from './store/index.js';
+import styles from './App.module.css';
 
 const App = () => {
-	const userNames = useSelector((state) => state.userNames);
-
 	const dispatch = useDispatch();
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/users')
@@ -25,7 +23,7 @@ const App = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className={styles.box}>
 			<AutoCompleteInput />
 			<AutoCompleteInput2 />
 		</div>
